@@ -1,0 +1,26 @@
+<html>
+  <title>Hangman</title>
+  <head></head>
+  <body>
+    <h1>Hangman Game</h1>
+    <% if lives > 0%>
+      <img src=<%= '/images/hangman/' + lives.to_s + '.jpg' %> />
+      <p>
+        You have <%= lives %> lives remaining.
+      </p>
+      <h2><%= current_word.split("").join(" ") %></h2>
+      Guesses:
+        <% guesses.each do |g|%>
+          <%= g.to_s %>
+        <% end %>
+      <form>
+          Guess:<br>
+          <input type='text' name='guess' />
+          <br>
+          <input type='submit' value='Submit Guess'/>
+          <input type='submit' value="Restart" name="restart">
+        <% else %>
+          <h2> You are out of lives. Press the button to restart.<h2>
+        <% end %>
+  </body>
+</html>
